@@ -53,4 +53,22 @@ fn main() {
     // let array = [3; 5]; // creates an array of length 5, filled with the value 3
 
     println!("{:?} {}", array, type_name_of_val(&array));
+
+    // we can safely acess the elements of the array using get method, which returns an Option type
+    match array.get(2) {
+        Some(value) => println!("The value at index 2 is: {}", value),
+        None => println!("No value found at index 2"),
+    }
+
+    // we can also get a slice of the array using the get method with a range, which returns an Option type
+    match array.get(1..2) {
+        Some(slice) => println!("The slice from index 1 to 2 is: {:?}", slice),
+        None => println!("No slice found from index 1 to 2"),
+    }
+
+    match array.len() {
+        len if len > 0 => println!("The length of the array is: {}", len),
+        _ => println!("The array is empty"),
+    }
+    
 }
